@@ -1,0 +1,31 @@
+# Compilados Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Diretórios de build
+/target/
+/bin/
+/out/
+
+# Logs e temporários
+*.log
+*.tmp
+*.swp
+
+# Configurações do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos da IDE IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+node_modules/
+
+# Arquivos de ambiente e configurações locais
+.env
+*.properties.local
