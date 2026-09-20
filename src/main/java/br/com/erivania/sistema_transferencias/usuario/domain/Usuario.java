@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Size;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
 @NoArgsConstructor
@@ -30,4 +31,8 @@ public class Usuario {
     private TipoUsuario tipo;
     @NotNull
     private BigDecimal saldo;
+    @OneToMany(mappedBy = "pagador")
+    private List<Transferencia> transferenciaEnviadas;
+    @OneToMany(mappedBy = "recebedor")
+    private  List<Transferencia> transferenciaRecebida;
 }
