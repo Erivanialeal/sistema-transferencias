@@ -1,5 +1,6 @@
 package br.com.erivania.sistema_transferencias.usuario.domain;
 
+import br.com.erivania.sistema_transferencias.usuario.application.api.UsuarioResquest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -35,4 +36,7 @@ public class Usuario {
     private List<Transferencia> transferenciaEnviadas;
     @OneToMany(mappedBy = "recebedor")
     private  List<Transferencia> transferenciaRecebida;
+
+    public Usuario(UsuarioResquest usuarioResquest) {
+    }
 }

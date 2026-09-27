@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: sistema-transferencias
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/carteira_digitaldb
+    username: postgres
+    password: homemaranha
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
