@@ -5,7 +5,7 @@ import br.com.erivania.sistema_transferencias.usuario.application.api.UsuarioRes
 import jakarta.validation.Valid;
 
 public interface UsuarioService {
-    UsuarioResponse criarUsuario(UsuarioResquest usuarioResquest);
+    void criarUsuario(UsuarioResquest usuarioResquest);
 
 
 }
