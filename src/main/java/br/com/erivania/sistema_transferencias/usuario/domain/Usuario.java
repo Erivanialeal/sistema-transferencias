@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
@@ -14,6 +15,7 @@ import java.util.UUID;
 
 @NoArgsConstructor
 @Entity
+@Getter
 public class Usuario {
     @Id
     @GeneratedValue
@@ -38,5 +40,10 @@ public class Usuario {
     private  List<Transferencia> transferenciaRecebida;
 
     public Usuario(UsuarioResquest usuarioResquest) {
-    }
+        this.nome = usuarioResquest.getNome();
+        this.cpf = usuarioResquest.getCpf();
+        this.email = usuarioResquest.getEmail();
+        this.senha = usuarioResquest.getSenha();
+        this.tipo = usuarioResquest.getTipo();
+        this.saldo = usuarioResquest.getSaldo(); }
 }

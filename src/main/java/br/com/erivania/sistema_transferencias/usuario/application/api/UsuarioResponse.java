@@ -2,6 +2,7 @@ package br.com.erivania.sistema_transferencias.usuario.application.api;
 
 import br.com.erivania.sistema_transferencias.usuario.domain.TipoUsuario;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.Value;
 
 import java.math.BigDecimal;

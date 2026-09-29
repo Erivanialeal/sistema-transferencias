@@ -1,4 +1,4 @@
-package br.com.erivania.sistema_transferencias.usuario.handler;
+package br.com.erivania.sistema_transferencias.handler;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AccessLevel;

@@ -1,4 +1,4 @@
-package br.com.erivania.sistema_transferencias.usuario.handler;
+package br.com.erivania.sistema_transferencias.handler;
 
 import lombok.Getter;
 import org.springframework.http.ResponseEntity;
