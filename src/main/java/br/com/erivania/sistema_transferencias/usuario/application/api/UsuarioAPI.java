@@ -4,11 +4,17 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("v1/usuario")
 public interface UsuarioAPI {
 
     @PostMapping
     @ResponseStatus(code= HttpStatus.CREATED)
-    void postUsuario(@Valid @RequestBody UsuarioResquest usuarioResquest);
+    UsuarioResponse postUsuario(@Valid @RequestBody UsuarioResquest usuarioResquest);
+
+    @GetMapping("/{idUsuario}")
+    @ResponseStatus(code = HttpStatus.OK)
+    UsuarioResponse getUsuario(@PathVariable UUID idUsuario);
 }

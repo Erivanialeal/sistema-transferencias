@@ -4,8 +4,9 @@ import br.com.erivania.sistema_transferencias.usuario.application.api.UsuarioRes
 import br.com.erivania.sistema_transferencias.usuario.application.api.UsuarioResquest;
 import jakarta.validation.Valid;
 
+import java.util.UUID;
+
 public interface UsuarioService {
-    void criarUsuario(UsuarioResquest usuarioResquest);
-
-
+    UsuarioResponse criarUsuario(UsuarioResquest usuarioResquest);
+    UsuarioResponse buscarUsuario(UUID idUsuario);
 }

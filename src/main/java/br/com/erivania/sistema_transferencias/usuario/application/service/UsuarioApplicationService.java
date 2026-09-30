@@ -17,10 +17,26 @@ public class UsuarioApplicationService implements UsuarioService {
     private final UsuarioRepository usuarioRepository;
 
     @Override
-    public void criarUsuario(UsuarioResquest usuarioResquest) {
+    public UsuarioResponse criarUsuario(UsuarioResquest usuarioResquest) {
         log.info("[inicia]UsuarioApplicationService - criarUsuario");
         Usuario usuario = new Usuario(usuarioResquest);
-        usuario = usuarioRepository.salvar(usuario);
+         usuario = usuarioRepository.salvar(usuario);
         log.info("[finaliza]UsuarioApplicationService - criarUsuario");
+        return UsuarioResponse.builder()
+                .idUsuario(usuario.getIdUsuario())
+                .build();
+
+    }
+
+    @Override
+    public UsuarioResponse buscarUsuario(UUID idUsuario) {
+        log.info("[inicia]UsuarioApplicationService - buscarUsuario");
+        Usuario usuario = usuarioRepository.buscarUsuario(idUsuario);
+        log.info("[finaliza]UsuarioApplicationService - buscarUsuario");
+        return UsuarioResponse.builder()
+                .idUsuario(usuario.getIdUsuario())
+                .build();
+
+
     }
 }

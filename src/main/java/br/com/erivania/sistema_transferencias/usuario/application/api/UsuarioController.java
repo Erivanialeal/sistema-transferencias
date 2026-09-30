@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
 @Log4j2
 @RequiredArgsConstructor
@@ -16,9 +18,19 @@ public class UsuarioController implements UsuarioAPI {
     private final UsuarioService usuarioService;
 
     @Override
-    public void postUsuario(@RequestBody UsuarioResquest usuarioResquest) {
+    public UsuarioResponse postUsuario(@RequestBody UsuarioResquest usuarioResquest) {
         log.info("[Inicia]UsuarioController - postUsuario");
-        usuarioService.criarUsuario(usuarioResquest);
+        UsuarioResponse usuario =usuarioService.criarUsuario(usuarioResquest);
         log.info("[Finaliza]UsuarioController - postUsuario");
+        return  usuario;
+    }
+
+    @Override
+    public UsuarioResponse getUsuario(UUID idUsuario) {
+        log.info("[Inicia]UsuarioController - getUsuario");
+        UsuarioResponse usuario = usuarioService.buscarUsuario(idUsuario);
+        log.info("[finaliza]UsuarioController - getUsuario");
+        return  usuario;
+
     }
 }
