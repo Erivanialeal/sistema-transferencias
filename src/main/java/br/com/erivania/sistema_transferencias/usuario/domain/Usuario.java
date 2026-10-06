@@ -24,8 +24,10 @@ public class Usuario {
     private String nome;
     @NotBlank
     @Pattern(regexp = "\\d{11}")
+    @Column(unique = true, nullable = false)
     private String cpf;
     @NotBlank
+    @Column(unique = true, nullable = false)
     private String email;
     @NotBlank
     @Size(min = 8)

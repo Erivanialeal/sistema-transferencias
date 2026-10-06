@@ -1,5 +1,6 @@
 package br.com.erivania.sistema_transferencias.usuario.application.api;
 
+import br.com.erivania.sistema_transferencias.trasferencia.application.api.TransferenciaRequest;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
