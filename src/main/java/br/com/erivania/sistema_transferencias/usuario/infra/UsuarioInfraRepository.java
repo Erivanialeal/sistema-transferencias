@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -31,6 +32,14 @@ public class UsuarioInfraRepository implements UsuarioRepository {
                 .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND,"Usuario não encontrado!"));
         log.info("[finaliza]UsuarioInfraRepository - buscarUsuario");
         return usuario;
+    }
+
+    @Override
+    public List<Usuario> buscarTodos() {
+        log.info("[Inicia]UsuarioInfraRepository - buscarTodos");
+        List<Usuario> usuarios = usuarioSpringDataJPARepository.findAll();
+        log.info("[finaliza]UsuarioInfraRepository - buscarTodos");
+        return usuarios;
     }
 
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -16,6 +17,14 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UsuarioController implements UsuarioAPI {
     private final UsuarioService usuarioService;
+
+    @Override
+    public List<UsuarioListResponse> getListUsuario() {
+        log.info("[Inicia]UsuarioController - getListUsuario");
+        List<UsuarioListResponse> response = usuarioService.buscarTodos();
+        log.info("[Finaliza]UsuarioController - getListUsuario");
+        return response;
+    }
 
     @Override
     public UsuarioResponse postUsuario(@RequestBody UsuarioResquest usuarioResquest) {

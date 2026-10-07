@@ -1,5 +1,6 @@
 package br.com.erivania.sistema_transferencias.usuario.application.service;
 
+import br.com.erivania.sistema_transferencias.usuario.application.api.UsuarioListResponse;
 import br.com.erivania.sistema_transferencias.usuario.application.api.UsuarioResponse;
 import br.com.erivania.sistema_transferencias.usuario.application.api.UsuarioResquest;
 import br.com.erivania.sistema_transferencias.usuario.application.repository.UsuarioRepository;
@@ -8,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Log4j2
@@ -38,5 +40,19 @@ public class UsuarioApplicationService implements UsuarioService {
                 .build();
 
 
+    }
+
+    @Override
+    public List<UsuarioListResponse> buscarTodos() {
+        log.info("[inicia]UsuarioApplicationService - buscarTodos");
+        List<Usuario> usuarios = usuarioRepository.buscarTodos();
+        log.info("[Finaliza]UsuarioApplicationService - buscarTodos");
+        return usuarios.stream()
+                .map(usuario -> UsuarioListResponse.builder()
+                        .idUsuario(usuario.getIdUsuario())
+                        .nome(usuario.getNome())
+                        .tipoUsuario(usuario.getTipo())
+                        .build())
+                .toList();
     }
 }
