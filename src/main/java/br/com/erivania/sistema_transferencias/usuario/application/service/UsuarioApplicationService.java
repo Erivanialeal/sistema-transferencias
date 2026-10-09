@@ -51,6 +51,7 @@ public class UsuarioApplicationService implements UsuarioService {
                 .map(usuario -> UsuarioListResponse.builder()
                         .idUsuario(usuario.getIdUsuario())
                         .nome(usuario.getNome())
+                        .saldo(usuario.getSaldo())
                         .tipoUsuario(usuario.getTipo())
                         .build())
                 .toList();

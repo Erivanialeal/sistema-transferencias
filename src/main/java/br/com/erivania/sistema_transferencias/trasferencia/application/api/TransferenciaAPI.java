@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/trasferencia")
+@RequestMapping("/transferencia")
 public interface TransferenciaAPI {
 
     @PostMapping

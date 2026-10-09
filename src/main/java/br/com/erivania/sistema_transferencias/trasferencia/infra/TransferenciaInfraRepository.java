@@ -10,12 +10,10 @@ import org.springframework.stereotype.Repository;
 @Log4j2
 @RequiredArgsConstructor
 public class TransferenciaInfraRepository implements TransferenciaRepository {
-    TransferenciaSpringDataJPARepository transferenciaSpringDataJPARepository;
+    private final TransferenciaSpringDataJPARepository transferenciaSpringDataJPARepository;
     @Override
     public Transferencia salvar(Transferencia transferencia) {
         log.info("[inicia]TransferenciaInfraRepository - salvar");
-        transferenciaSpringDataJPARepository.save(transferencia);
-        log.info("[Finaliza]TransferenciaInfraRepository - salvar");
-        return null;
+        return transferenciaSpringDataJPARepository.save(transferencia);
     }
 }

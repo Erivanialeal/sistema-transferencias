@@ -1,5 +1,7 @@
 package br.com.erivania.sistema_transferencias.trasferencia.application.service;
 
+import br.com.erivania.sistema_transferencias.autorizador.AutorizadorExterno;
+import br.com.erivania.sistema_transferencias.autorizador.AutorizadorExternoInfra;
 import br.com.erivania.sistema_transferencias.handler.APIException;
 import br.com.erivania.sistema_transferencias.trasferencia.application.api.TransferenciaRequest;
 import br.com.erivania.sistema_transferencias.trasferencia.application.api.TransferenciaResponse;
@@ -21,6 +23,7 @@ import java.math.BigDecimal;
 public class TransferenciaApplicationService implements TransferenciaService {
     private final UsuarioRepository usuarioRepository;
     private final TransferenciaRepository transferenciaRepository;
+    private  final AutorizadorExterno autorizadorExterno;
 
 
     @Override
@@ -51,6 +54,13 @@ public class TransferenciaApplicationService implements TransferenciaService {
             throw APIException.build(
                     HttpStatus.BAD_REQUEST,
                     "O valor da transferencia deve ser maior que zero!"
+            );
+        }
+        boolean autorizado = autorizadorExterno.autorizar();
+        if(!autorizado){
+            throw APIException.build(
+                    HttpStatus.FORBIDDEN,
+                    "Transferência não autorizada pelo serviço externo"
             );
         }
         Transferencia transferencia = new Transferencia();
