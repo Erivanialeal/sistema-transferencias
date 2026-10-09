@@ -28,6 +28,5 @@ public class Transferencia {
     @Enumerated(EnumType.STRING)
     private Status status;
     private LocalDateTime data;
-    private String idempotencyKey;
 
 }

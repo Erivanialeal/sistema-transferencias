@@ -14,9 +14,9 @@ public class TransferenciaController implements TransferenciaAPI {
     private final TransferenciaService trasferenciaService;
 
     @Override
-    public TransferenciaResponse postTrasferencia(TransferenciaRequest transferenciaRequest) {
+    public TransferenciaResponse postTrasferencia(String idempoteceKey,TransferenciaRequest transferenciaRequest) {
         log.info("[inicia]TransferenciaController -  postTrasferencia");
-        TransferenciaResponse transferencia = trasferenciaService.fazerTrasferencia(transferenciaRequest);
+        TransferenciaResponse transferencia = trasferenciaService.fazerTrasferencia(idempoteceKey,transferenciaRequest);
         log.info("[inicia]TransferenciaController -  postTrasferencia");
         return transferencia;
     }

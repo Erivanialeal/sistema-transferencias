@@ -10,5 +10,5 @@ public interface TransferenciaAPI {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.OK)
-    TransferenciaResponse postTrasferencia(@Valid @RequestBody TransferenciaRequest transferenciaRequest);
+    TransferenciaResponse postTrasferencia(@RequestHeader("idempotency-Key") String idempoteceKey, @Valid @RequestBody TransferenciaRequest transferenciaRequest);
 }

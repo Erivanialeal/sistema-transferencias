@@ -5,5 +5,5 @@ import br.com.erivania.sistema_transferencias.trasferencia.application.api.Trans
 import br.com.erivania.sistema_transferencias.usuario.application.api.UsuarioResponse;
 
 public interface TransferenciaService {
-    TransferenciaResponse fazerTrasferencia(TransferenciaRequest transferenciaRequest);
+    TransferenciaResponse fazerTrasferencia(String idempoteceKey,TransferenciaRequest transferenciaRequest);
 }

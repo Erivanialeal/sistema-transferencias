@@ -27,7 +27,8 @@ public class TransferenciaApplicationService implements TransferenciaService {
 
 
     @Override
-    public TransferenciaResponse fazerTrasferencia(TransferenciaRequest transferenciaRequest) {
+    public TransferenciaResponse fazerTrasferencia(String idempoteceKey,TransferenciaRequest transferenciaRequest) {
+
         log.info("[Finaliza]TransferenciaApplicationService - fazerTrasferencia");
         if(transferenciaRequest.getValor().compareTo(BigDecimal.ZERO) <= 0){
             throw APIException.build(
