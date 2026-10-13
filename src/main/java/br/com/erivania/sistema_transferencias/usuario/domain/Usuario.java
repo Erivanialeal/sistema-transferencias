@@ -1,5 +1,6 @@
 package br.com.erivania.sistema_transferencias.usuario.domain;
 
+import br.com.erivania.sistema_transferencias.trasferencia.domain.Transferencia;
 import br.com.erivania.sistema_transferencias.usuario.application.api.UsuarioResquest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

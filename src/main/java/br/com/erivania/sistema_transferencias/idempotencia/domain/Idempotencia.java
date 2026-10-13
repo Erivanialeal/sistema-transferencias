@@ -1,5 +1,6 @@
-package br.com.erivania.sistema_transferencias.usuario.domain;
+package br.com.erivania.sistema_transferencias.idempotencia.domain;
 
+import br.com.erivania.sistema_transferencias.trasferencia.domain.Transferencia;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,12 +10,12 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-public class Idepotencia {
+public class Idempotencia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    @Column(nullable = false,length = 100)
+    @Column(nullable = false,length = 100,unique = true)
     private String chave;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

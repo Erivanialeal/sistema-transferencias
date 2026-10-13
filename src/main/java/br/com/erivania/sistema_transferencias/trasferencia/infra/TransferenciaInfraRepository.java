@@ -1,7 +1,7 @@
 package br.com.erivania.sistema_transferencias.trasferencia.infra;
 
 import br.com.erivania.sistema_transferencias.trasferencia.application.repository.TransferenciaRepository;
-import br.com.erivania.sistema_transferencias.usuario.domain.Transferencia;
+import br.com.erivania.sistema_transferencias.trasferencia.domain.Transferencia;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;

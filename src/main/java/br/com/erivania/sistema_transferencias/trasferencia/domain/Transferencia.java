@@ -1,12 +1,13 @@
-package br.com.erivania.sistema_transferencias.usuario.domain;
+package br.com.erivania.sistema_transferencias.trasferencia.domain;
 
+import br.com.erivania.sistema_transferencias.usuario.domain.Status;
+import br.com.erivania.sistema_transferencias.usuario.domain.Usuario;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
